@@ -1,0 +1,58 @@
+CLASS 1 :-
+
+Public Class GameElement
+    Private PositionX As Integer
+    Private PositionY As Integer
+    Private width As Integer
+    Private Height As Integer
+    Private ImageFileName As String
+
+    Public Sub New(ByVal X As Integer, ByVal Y As Integer, ByVal W As Integer, ByVal H As Integer, ByVal IFN As String)
+        PositionX = X
+        PositionY = Y
+        width = W
+        Height = H
+        ImageFileName = IFN
+    End Sub
+    Public Function Getdetails() As String
+        Dim Message As String
+        Message = " PositionX = " & PositionX & " PositionY = " & PositionY & "width = " & width & "Height = " & Height & "ImageFileName = " & ImageFileName
+        Return Message
+    End Function
+End Class
+
+
+CLASS 2 :-
+
+Public Class Scenery
+    Inherits GameElement
+
+    Private CauseDamage As Boolean
+    Private damagepoints As Integer
+    Private Giftbox As Scenery
+
+    Public Sub New(ByVal CP As Boolean, ByVal DP As Integer)
+        MyBase.New(X:=12, Y:=15, W:=20, H:=13, IFN:="BhothardGame")
+        CauseDamage = CP
+        damagepoints = DP
+    End Sub
+
+    Public Function GiveDamagePoints() As Integer
+        If CauseDamage = True Then
+            Return damagepoints
+        Else
+            Return 0
+        End If
+    End Function
+
+    Giftbox = Scenery(150, 150, 50, 75, "BhothardGame.png", True, 50)
+
+    Public Function GetScenery() As String
+        Dim Message1 As String
+        Message1 = MyBase.Getdetails
+        Message1 = Message1 & "CausedDamage= " & CauseDamage & "DamagePoints" & damagepoints
+        Return Message1
+    End Function
+
+End Class
+
