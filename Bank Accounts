@@ -1,0 +1,49 @@
+Class Accounts :-
+
+Public Class Account
+    Private accountnumber As String
+    Private balance As Decimal
+
+    Public Sub New(ByVal AN As String, ByVal B As Decimal)
+        accountnumber = AN
+        balance = B
+    End Sub
+
+    Public Function GetAccountNumber() As String
+        Dim Message As String
+        Message = " "
+        Message = " Account Number : " & accountnumber
+        Return Message
+    End Function
+
+    Public Function GetBalance() As Decimal
+        Dim Message1 As String
+        Message1 = " "
+        Message1 = " Balance is : " & balance
+        Return Message1
+    End Function
+
+    Public Sub SetAccountNumber()
+        Console.WriteLine(accountnumber)
+    End Sub
+
+    Public Sub SetBalance()
+        Console.WriteLine(balance)
+    End Sub
+End Class
+
+Class SavingsAccounts :-
+
+Public Class SavingsAccount
+    Inherits Account
+    Private RegularAmount As Decimal
+    Private paymentInterval As Integer
+
+    Public Sub New(ByVal RA As Decimal, ByVal PI As Integer)
+        MyBase.New(AN, B)
+        RegularAmount = RA
+        paymentInterval = PI
+    End Sub
+
+End Class
+
