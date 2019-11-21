@@ -1,4 +1,4 @@
-CLASS 1 :-
+CLASS GameElement :-
 
 Public Class GameElement
     Private PositionX As Integer
@@ -22,7 +22,7 @@ Public Class GameElement
 End Class
 
 
-CLASS 2 :-
+CLASS Scenery :-
 
 Public Class Scenery
     Inherits GameElement
@@ -45,7 +45,7 @@ Public Class Scenery
         End If
     End Function
 
-    Giftbox = Scenery(150, 150, 50, 75, "BhothardGame.png", True, 50)
+    Giftbox = New Scenery(150, 150, 50, 75, "BhothardGame.png", True, 50)
 
     Public Function GetScenery() As String
         Dim Message1 As String
