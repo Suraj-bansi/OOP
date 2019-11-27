@@ -1,0 +1,51 @@
+Public Class QuadraticEquation
+    Structure Part
+        Dim sign As String
+        Dim cooficient As Integer
+        Dim power As Integer
+    End Structure
+
+    Structure Polynomial
+        Dim fpower As Part
+        Dim lpower As Part
+        Dim sign As String
+        Dim constant As Integer
+    End Structure
+
+    Private QEquation As Polynomial
+    Private fpower As Part
+    Private lpower As Part
+    Private sign As String
+    Private constant As Integer
+    Dim strQE As String
+    Dim Message As String
+    Dim NextChar As Char
+
+    Public Sub New(ByVal fp As Part, ByVal lp As Part, ByVal s As String, ByVal c As Integer)    
+        fpower = fp
+        lpower = lp
+        sign = s
+        constant = c
+        Message = fpower & lpower & sign & constant
+        strQE = Message
+
+    End Sub
+
+    Public Sub QEbreaker()
+        strQE = Console.ReadLine
+        For count = 1 To Len(strQE)
+            NextChar = Mid(strQE, count, 1)
+            QEquation = QEquation + NextChar
+        Next
+    End Sub
+
+    Public Function GetPolynomial(ByVal QEquation As Polynomial) As Polynomial
+        Dim Message1 As String
+        Message1 = fpower + lpower + sign + constant
+        Return Message1
+    End Function
+
+    Dim QuadraticEquation As Polynomial
+    QuadraticEquation = New("+", 5, 2, "-", 2, 1, 3)
+
+End Class
